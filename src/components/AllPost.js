@@ -29,10 +29,10 @@ function AllPost() {
             <div class="col-sm-6 col-md-3 colCard">
               <div class="card  m-5" style={{ width: "20vw" }}>
                 <div class="card-body">
-                  <h5 class="card-title"> {u.name}</h5>
-                  <p class="card-text">{u.email}</p>
-                  <p class="card-text">{u.age}</p>
-                  <p class="card-text">{u.gender}</p>
+                  <h5 class="card-title">Name: {u.name}</h5>
+                  <p class="card-text">Email: {u.email}</p>
+                  <p class="card-text">Age: {u.age}</p>
+                  <p class="card-text">Gender: {u.gender}</p>
                   <div className="btn icon">
                     <button
                       className="btn btn-danger "
