@@ -99,7 +99,15 @@ function Form() {
                 <label className="form-check-label">Female</label>
               </div>
             </div>
-            <button className="btn btn-primary w-100 mt-2" type="submit">
+            <button
+              className="btn  w-100 mt-2"
+              style={{
+                background: "#5DA7DB",
+                color: "white",
+                fontSize: "1.1rem",
+              }}
+              type="submit"
+            >
               Submit
             </button>
           </form>

@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../features/userSlice";
 import { toast } from "react-toastify";
+import Spinner from "./Spinner";
 
 function Model({ id, showPop, setShowPop }) {
-  const { users } = useSelector((state) => state.user);
+  const { users, isLoading } = useSelector((state) => state.user);
   const [userData, setUserData] = useState({});
   const dispatch = useDispatch();
 
@@ -29,6 +30,9 @@ function Model({ id, showPop, setShowPop }) {
     }
   }, []);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
     <>
       <div className="model slide-in-elliptic-bottom-fwd  ">

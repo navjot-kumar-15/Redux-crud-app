@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Form from "./components/Form";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AllPost from "./components/AllPost";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
