@@ -22,7 +22,7 @@ function AllPost() {
     <>
       {showPop && <Model id={id} showPop={showPop} setShowPop={setShowPop} />}
       <div className="head ">
-        <h1 className="text-center ">All users</h1>
+        <h1 className="text-center tracking-in-expand-fwd">All users</h1>
         <input
           type="text"
           placeholder="Searh here..."

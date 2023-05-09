@@ -30,7 +30,7 @@ function Model({ id, showPop, setShowPop }) {
 
   return (
     <>
-      <div className="model">
+      <div className="model slide-in-elliptic-bottom-fwd  ">
         <div className="modelCont">
           <h4 className="text-center mb-2">Update</h4>
           <form onSubmit={handleSubmit}>
