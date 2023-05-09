@@ -35,7 +35,9 @@ function AllPost() {
         style={{ display: "flex", flexWrap: "wrap", marginLeft: "-2.5rem" }}
       >
         {users
-          .filter((val) => val.name.toLowerCase().includes(searchData))
+          .filter((val) =>
+            (val.name, val.gender, val.age).toLowerCase().includes(searchData)
+          )
           .map((u) => (
             <>
               <div className="col-sm-4 col-md-4 colCard" key={u.id}>
