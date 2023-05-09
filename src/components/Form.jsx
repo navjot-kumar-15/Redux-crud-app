@@ -36,7 +36,7 @@ function Form() {
     <>
       <div className="mainForm">
         <div className="container">
-          <h4 className="text-center mb-3">Add User</h4>
+          <h2 className="text-center mb-3">Add User</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-floating mb-3">
               <input
