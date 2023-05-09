@@ -9,6 +9,7 @@ function AllPost() {
   const { users, isLoading } = useSelector((state) => state.user);
   const [id, setId] = useState();
   const [showPop, setShowPop] = useState(false);
+  const [searchData, setSearchData] = useState("");
 
   useEffect(() => {
     dispatch(getUser());
@@ -20,43 +21,54 @@ function AllPost() {
   return (
     <>
       {showPop && <Model id={id} showPop={showPop} setShowPop={setShowPop} />}
+      <div className="head ">
+        <h1 className="text-center ">All users</h1>
+        <input
+          type="text"
+          placeholder="Searh here..."
+          className="search"
+          onChange={(e) => setSearchData(e.target.value)}
+        />
+      </div>
       <div
-        class="row "
+        className="row "
         style={{ display: "flex", flexWrap: "wrap", marginLeft: "-2.5rem" }}
       >
-        {users.map((u) => (
-          <>
-            <div class="col-sm-6 col-md-3 colCard">
-              <div class="card  m-5" style={{ width: "20vw" }}>
-                <div class="card-body">
-                  <h5 class="card-title">Name: {u.name}</h5>
-                  <p class="card-text">Email: {u.email}</p>
-                  <p class="card-text">Age: {u.age}</p>
-                  <p class="card-text">Gender: {u.gender}</p>
-                  <div className="btn icon">
-                    <button
-                      className="btn btn-danger "
-                      onClick={() => (
-                        dispatch(deleteUser(u.id)),
-                        toast.success("User deleted successfully")
-                      )}
-                    >
-                      {" "}
-                      Delete
-                    </button>
-                    <button
-                      onClick={() => (setId(u.id), setShowPop(true))}
-                      className="btn btn-primary"
-                    >
-                      {" "}
-                      Edit
-                    </button>{" "}
+        {users
+          .filter((val) => val.name.toLowerCase().includes(searchData))
+          .map((u) => (
+            <>
+              <div className="col-sm-4 col-md-4 colCard" key={u.id}>
+                <div className="card mainCard m-5" style={{ width: "25vw" }}>
+                  <div className="card-body">
+                    <h5 className="card-title">Name: {u.name}</h5>
+                    <p className="card-text">Email: {u.email}</p>
+                    <p className="card-text">Age: {u.age}</p>
+                    <p className="card-text">Gender: {u.gender}</p>
+                    <div className="btn icon">
+                      <button
+                        className="btn btn-danger "
+                        onClick={() => (
+                          dispatch(deleteUser(u.id)),
+                          toast.success("User deleted successfully")
+                        )}
+                      >
+                        {" "}
+                        Delete
+                      </button>
+                      <button
+                        onClick={() => (setId(u.id), setShowPop(true))}
+                        className="btn btn-primary"
+                      >
+                        {" "}
+                        Edit
+                      </button>{" "}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </>
-        ))}
+            </>
+          ))}
       </div>
     </>
   );

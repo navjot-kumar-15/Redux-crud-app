@@ -4,13 +4,6 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   const { users } = useSelector((state) => state.user);
-  const [query, setQuery] = useState("");
-  const keys = ["name", "age", "email", "gender"];
-  const search = () => {
-    return users.filter((item) =>
-      keys.some((key) => item[key].toLowerCase().includes(query))
-    );
-  };
 
   return (
     <>
@@ -41,31 +34,6 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                onChange={(e) => setQuery(e.target.value.toLowerCase())}
-              />
-              <button
-                className="btn btn-outline-success"
-                type="submit"
-                onClick={() =>
-                  search(() => {
-                    const keys = ["name", "age", "email", "gender"];
-                    return users.filter((item) =>
-                      keys.some((key) =>
-                        item[key].toLowerCase().includes(query)
-                      )
-                    );
-                  })
-                }
-              >
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>
