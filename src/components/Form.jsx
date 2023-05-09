@@ -18,6 +18,9 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!name || !email || !age || !gender) {
+      return toast.error("Please fill all the fields");
+    }
     dispatch(createUser(user));
     navigate("/");
     toast.success("User added successfully");
