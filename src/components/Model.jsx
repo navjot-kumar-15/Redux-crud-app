@@ -10,9 +10,10 @@ function Model({ id, showPop, setShowPop }) {
 
   // Submit function
   const handleSubmit = (e) => {
+    e.preventDefault();
     dispatch(updateUser(userData));
     setShowPop(false);
-    toast.success("User update successfully");
+    toast.success("User updated successfully");
   };
 
   // Onchange function

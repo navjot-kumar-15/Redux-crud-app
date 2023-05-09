@@ -41,7 +41,9 @@ function AllPost() {
               <div className="col-sm-4 col-md-4 colCard" key={u.id}>
                 <div className="card mainCard m-5" style={{ width: "25vw" }}>
                   <div className="card-body">
-                    <h5 className="card-title">Name: {u.name}</h5>
+                    <h5 className="card-title">
+                      Name: {u.name.charAt(0).toUpperCase() + u.name.slice(1)}
+                    </h5>
                     <p className="card-text">Email: {u.email}</p>
                     <p className="card-text">Age: {u.age}</p>
                     <p className="card-text">Gender: {u.gender}</p>
