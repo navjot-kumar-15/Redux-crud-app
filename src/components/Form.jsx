@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../features/userSlice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Form() {
   const [user, setUser] = useState({
@@ -17,9 +18,9 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
     dispatch(createUser(user));
-    navigate("/all");
+    navigate("/");
+    toast.success("User added successfully");
   };
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });

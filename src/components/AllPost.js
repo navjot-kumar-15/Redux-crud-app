@@ -3,6 +3,7 @@ import { deleteUser, getUser } from "../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "./Spinner";
 import Model from "./Model";
+import { toast } from "react-toastify";
 function AllPost() {
   const dispatch = useDispatch();
   const { users, isLoading } = useSelector((state) => state.user);
@@ -19,29 +20,39 @@ function AllPost() {
   return (
     <>
       {showPop && <Model id={id} showPop={showPop} setShowPop={setShowPop} />}
-      <div className="allPostCont">
+      <div
+        class="row "
+        style={{ display: "flex", flexWrap: "wrap", marginLeft: "-2.5rem" }}
+      >
         {users.map((u) => (
           <>
-            <div className="containerAll" key={u.id}>
-              <h1>Name: {u.name}</h1>
-              <p>Email: {u.email}</p>
-              <p>Age: {u.age}</p>
-              <p>Gender: {u.gender} </p>
-              <div className="btn icon">
-                <button
-                  className="btn btn-danger "
-                  onClick={() => dispatch(deleteUser(u.id))}
-                >
-                  {" "}
-                  Delete
-                </button>
-                <button
-                  onClick={() => (setId(u.id), setShowPop(true))}
-                  className="btn btn-primary"
-                >
-                  {" "}
-                  Edit
-                </button>{" "}
+            <div class="col-sm-6 col-md-3 colCard">
+              <div class="card  m-5" style={{ width: "20vw" }}>
+                <div class="card-body">
+                  <h5 class="card-title"> {u.name}</h5>
+                  <p class="card-text">{u.email}</p>
+                  <p class="card-text">{u.age}</p>
+                  <p class="card-text">{u.gender}</p>
+                  <div className="btn icon">
+                    <button
+                      className="btn btn-danger "
+                      onClick={() => (
+                        dispatch(deleteUser(u.id)),
+                        toast.success("User deleted successfully")
+                      )}
+                    >
+                      {" "}
+                      Delete
+                    </button>
+                    <button
+                      onClick={() => (setId(u.id), setShowPop(true))}
+                      className="btn btn-primary"
+                    >
+                      {" "}
+                      Edit
+                    </button>{" "}
+                  </div>
+                </div>
               </div>
             </div>
           </>

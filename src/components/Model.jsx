@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../features/userSlice";
-import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Model({ id, showPop, setShowPop }) {
   const { users } = useSelector((state) => state.user);
   const [userData, setUserData] = useState({});
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   // Submit function
   const handleSubmit = (e) => {
     dispatch(updateUser(userData));
     setShowPop(false);
+    toast.success("User update successfully");
   };
 
   // Onchange function
