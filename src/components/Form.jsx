@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../features/userSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function Form() {
@@ -35,6 +35,9 @@ function Form() {
   return (
     <>
       <div className="mainForm">
+        <Link to="/" className="btn btn-success postBtn">
+          All Posts
+        </Link>
         <div className="container">
           <h2 className="text-center mb-3">Add User</h2>
           <form onSubmit={handleSubmit}>
@@ -102,7 +105,7 @@ function Form() {
             <button
               className="btn  w-100 mt-2"
               style={{
-                background: "#5DA7DB",
+                background: "#00906D",
                 color: "white",
                 fontSize: "1.1rem",
               }}

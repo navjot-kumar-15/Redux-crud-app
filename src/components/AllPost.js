@@ -36,7 +36,7 @@ function AllPost() {
           </Link>
         </div>
         <div
-          className="row "
+          className="row colRow "
           style={{ display: "flex", flexWrap: "wrap", marginLeft: "-2.5rem" }}
         >
           {users.length > 0 ? (
